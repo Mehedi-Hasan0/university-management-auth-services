@@ -1,20 +1,20 @@
 {
-    "keep": {
-        "days": true,
-        "amount": 14
+  "keep": {
+    "days": true,
+    "amount": 14
+  },
+  "auditLog": "D:\\projects\\next-level-web-development\\university-management-auth-services\\logs\\winston\\successes\\.1e8cba1a7a9463ce7c78a70cfc1e65387edb903d-audit.json",
+  "files": [
+    {
+      "date": 1706783598617,
+      "name": "D:\\projects\\next-level-web-development\\university-management-auth-services\\logs\\winston\\successes\\wm-2024-01-02-16-success.log",
+      "hash": "44228e0dc98c170204869621ccdd94a5067fe1f6a9303f7fb1a2e5649b6e5b2d"
     },
-    "auditLog": "D:\\projects\\next-level-web-development\\university-management-auth-services\\logs\\winston\\successes\\.1e8cba1a7a9463ce7c78a70cfc1e65387edb903d-audit.json",
-    "files": [
-        {
-            "date": 1706783598617,
-            "name": "D:\\projects\\next-level-web-development\\university-management-auth-services\\logs\\winston\\successes\\wm-2024-01-02-16-success.log",
-            "hash": "44228e0dc98c170204869621ccdd94a5067fe1f6a9303f7fb1a2e5649b6e5b2d"
-        },
-        {
-            "date": 1706786971076,
-            "name": "D:\\projects\\next-level-web-development\\university-management-auth-services\\logs\\winston\\successes\\wm-2024-01-02-17-success.log",
-            "hash": "34500f6ac27a90058f4aad1b9690a7ca3b8346556934c7efe4f22f74ecff0ec9"
-        }
-    ],
-    "hashType": "sha256"
+    {
+      "date": 1706786971076,
+      "name": "D:\\projects\\next-level-web-development\\university-management-auth-services\\logs\\winston\\successes\\wm-2024-01-02-17-success.log",
+      "hash": "34500f6ac27a90058f4aad1b9690a7ca3b8346556934c7efe4f22f74ecff0ec9"
+    }
+  ],
+  "hashType": "sha256"
 }
