@@ -3,4 +3,4 @@
 # .husky/pre-commit
 . "$(dirname -- "$0")/common.sh"
 
-yarn lint-prettier
+yarn lint-staged
