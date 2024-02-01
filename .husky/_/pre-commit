@@ -1,4 +1,6 @@
 #!/usr/bin/env sh
-. "${0%/*}/h"
+
+# .husky/pre-commit
+. "$(dirname -- "$0")/common.sh"
 
 yarn lint-staged
