@@ -34,7 +34,7 @@ const normalLogger = createLogger({
       ),
       datePattern: 'YYYY-DD-MM-HH',
       zippedArchive: true,
-      maxSize: '20m',
+      maxSize: '60m',
       maxFiles: '14d',
     }),
   ],
@@ -55,13 +55,10 @@ const errorLogger = createLogger({
       ),
       datePattern: 'YYYY-DD-MM-HH',
       zippedArchive: true,
-      maxSize: '20m',
+      maxSize: '60m',
       maxFiles: '14d',
     }),
   ],
 })
 
-export default {
-  normalLogger,
-  errorLogger,
-}
+export { normalLogger, errorLogger }

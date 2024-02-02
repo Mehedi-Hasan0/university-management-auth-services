@@ -1,6 +1,8 @@
-import express, { Application, Request, Response } from 'express'
+import express, { Application, NextFunction, Request, Response } from 'express'
 import cors from 'cors'
-import usersRouter from './app/modules/users/user.route'
+import { UserRoutes } from './app/modules/users/user.route'
+import globalErrorHandler from './app/middlewares/globalErrorHandler'
+import ApiError from './errors/ApiError'
 
 const app: Application = express()
 
@@ -11,11 +13,15 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 //Application routes
-app.use('/api/v1/users', usersRouter)
+app.use('/api/v1/users', UserRoutes)
+
+// global error handler
+app.use(globalErrorHandler)
 
 // Testing
-app.get('/', async (req: Request, res: Response) => {
-  res.send('Server running on port 5000')
-})
+// app.get('/', async (req: Request, res: Response, next: NextFunction) => {
+//   // res.send('Server running on port 5000')
+//   throw new Error('Testing Error logger')
+// })
 
 export default app
