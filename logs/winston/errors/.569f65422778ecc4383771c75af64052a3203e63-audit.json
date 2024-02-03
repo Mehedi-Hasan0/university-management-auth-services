@@ -1,25 +1,25 @@
 {
-    "keep": {
-        "days": true,
-        "amount": 14
+  "keep": {
+    "days": true,
+    "amount": 14
+  },
+  "auditLog": "D:\\projects\\next-level-web-development\\university-management-auth-services\\logs\\winston\\errors\\.569f65422778ecc4383771c75af64052a3203e63-audit.json",
+  "files": [
+    {
+      "date": 1706843266142,
+      "name": "D:\\projects\\next-level-web-development\\university-management-auth-services\\logs\\winston\\errors\\wm-2024-02-02-09-error.log",
+      "hash": "97128f203b80f95e54e1ebb4ef1056d2eb70a59683022c7fd198d85fb7f8f302"
     },
-    "auditLog": "D:\\projects\\next-level-web-development\\university-management-auth-services\\logs\\winston\\errors\\.569f65422778ecc4383771c75af64052a3203e63-audit.json",
-    "files": [
-        {
-            "date": 1706843266142,
-            "name": "D:\\projects\\next-level-web-development\\university-management-auth-services\\logs\\winston\\errors\\wm-2024-02-02-09-error.log",
-            "hash": "97128f203b80f95e54e1ebb4ef1056d2eb70a59683022c7fd198d85fb7f8f302"
-        },
-        {
-            "date": 1706846437207,
-            "name": "D:\\projects\\next-level-web-development\\university-management-auth-services\\logs\\winston\\errors\\wm-2024-02-02-10-error.log",
-            "hash": "e27d69f17dd91ce3bab1816583ba6cf300381f93ad5af2200b141a55bb96c0b1"
-        },
-        {
-            "date": 1706932863832,
-            "name": "D:\\projects\\next-level-web-development\\university-management-auth-services\\logs\\winston\\errors\\wm-2024-03-02-10-error.log",
-            "hash": "e596027135361c2801e09fcd608e053184537374805fe8ef6ac9327f96cce20e"
-        }
-    ],
-    "hashType": "sha256"
+    {
+      "date": 1706846437207,
+      "name": "D:\\projects\\next-level-web-development\\university-management-auth-services\\logs\\winston\\errors\\wm-2024-02-02-10-error.log",
+      "hash": "e27d69f17dd91ce3bab1816583ba6cf300381f93ad5af2200b141a55bb96c0b1"
+    },
+    {
+      "date": 1706932863832,
+      "name": "D:\\projects\\next-level-web-development\\university-management-auth-services\\logs\\winston\\errors\\wm-2024-03-02-10-error.log",
+      "hash": "e596027135361c2801e09fcd608e053184537374805fe8ef6ac9327f96cce20e"
+    }
+  ],
+  "hashType": "sha256"
 }
