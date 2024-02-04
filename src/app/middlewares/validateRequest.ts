@@ -2,10 +2,10 @@ import { NextFunction, Request, Response } from 'express';
 import { AnyZodObject } from 'zod';
 
 const validateRequest =
-  (createUserZodSchema: AnyZodObject) =>
+  (zodSchema: AnyZodObject) =>
   async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
-      await createUserZodSchema.parseAsync({
+      await zodSchema.parseAsync({
         body: req.body,
         query: req.query,
         params: req.params,
