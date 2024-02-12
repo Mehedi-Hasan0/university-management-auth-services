@@ -17,6 +17,7 @@ const createSemester = async (
 
   return result;
 };
+
 export const AcademicSemesterService = {
   createSemester,
 };

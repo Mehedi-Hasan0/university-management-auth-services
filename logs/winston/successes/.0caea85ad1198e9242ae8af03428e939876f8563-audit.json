@@ -1,0 +1,20 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "D:\\projects\\next-level-web-development\\university-management-auth-services\\logs\\winston\\successes\\.0caea85ad1198e9242ae8af03428e939876f8563-audit.json",
+    "files": [
+        {
+            "date": 1707709115622,
+            "name": "D:\\projects\\next-level-web-development\\university-management-auth-services\\logs\\winston\\successes\\wm-2024-12-02-09-success.log",
+            "hash": "49169ae80f9d479d35326e03d58038bfa24c15e9553aea32eb1806acf73e842e"
+        },
+        {
+            "date": 1707710489421,
+            "name": "D:\\projects\\next-level-web-development\\university-management-auth-services\\logs\\winston\\successes\\wm-2024-12-02-10-success.log",
+            "hash": "0c0c7a7a51764aa3739ae5a7756d00b0aa92409f9dfb7770674287f399f2f110"
+        }
+    ],
+    "hashType": "sha256"
+}
