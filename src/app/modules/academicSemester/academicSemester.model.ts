@@ -8,6 +8,8 @@ import {
   academicSemesterMonths,
   academicSemesterTitle,
 } from './academicSemester.constant';
+import ApiError from '../../../errors/ApiError';
+import httpStatus from 'http-status';
 
 const academicSemesterSchema = new Schema<IAcademicSemester>(
   {
@@ -40,6 +42,28 @@ const academicSemesterSchema = new Schema<IAcademicSemester>(
     timestamps: true,
   },
 );
+
+// Handling same Year && Same Semester Issue
+
+// We can perform 2 types of hook in mongoose
+// 1. Pre hook
+// 2. Post hook
+
+academicSemesterSchema.pre('save', async function (next) {
+  const isExist = await AcademicSemester.findOne({
+    title: this.title,
+    year: this.year,
+  });
+
+  if (isExist) {
+    throw new ApiError(
+      httpStatus.CONFLICT,
+      'Academic semester is already exists!',
+    );
+  }
+
+  next();
+});
 
 export const AcademicSemester = model<IAcademicSemester, AcademicSemesterModel>(
   'AcademicSemester',
