@@ -54,7 +54,7 @@ academicSemesterSchema.pre('save', async function (next) {
     title: this.title,
     year: this.year,
   });
-
+  console.log(isExist, 'from academic model');
   if (isExist) {
     throw new ApiError(
       httpStatus.CONFLICT,
@@ -65,7 +65,7 @@ academicSemesterSchema.pre('save', async function (next) {
   next();
 });
 
-export const AcademicSemester = model<IAcademicSemester, AcademicSemesterModel>(
+export const AcademicSemester = model<IAcademicSemester>(
   'AcademicSemester',
   academicSemesterSchema,
 );
