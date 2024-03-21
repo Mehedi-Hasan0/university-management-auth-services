@@ -1,4 +1,4 @@
-import { ErrorRequestHandler } from 'express';
+import { ErrorRequestHandler, NextFunction, Request, Response } from 'express';
 import { IGenericErrorMessage } from '../../types';
 import config from '../../config';
 import handleValidationError from '../../errors/handleValidationError';
@@ -7,7 +7,12 @@ import { errorLogger } from '../../shared/logger';
 import { ZodError } from 'zod';
 import zodErrorHandler from '../../errors/zodErrorHandler';
 
-const globalErrorHandler: ErrorRequestHandler = (error, req, res, next) => {
+const globalErrorHandler: ErrorRequestHandler = (
+  error,
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
   // separating logs based on development and production
   config.env === 'development'
     ? console.log('globalErrorHandler ~~~', error)
@@ -29,16 +34,21 @@ const globalErrorHandler: ErrorRequestHandler = (error, req, res, next) => {
     statusCode = simplyfiedError.statusCode;
     message = simplyfiedError.message;
     errorMessages = simplyfiedError.errorMessages;
-  } else if (error instanceof Error) {
-    message = error?.message;
-    errorMessages = error?.message
-      ? [{ path: '', message: error?.message }]
-      : [];
   } else if (error instanceof ApiError) {
     statusCode = error?.statusCode;
     message = error?.message;
     errorMessages = error?.message
       ? [{ path: '', message: error?.message }]
+      : [];
+  } else if (error instanceof Error) {
+    message = error?.message;
+    errorMessages = error?.message
+      ? [
+          {
+            path: '',
+            message: error?.message,
+          },
+        ]
       : [];
   }
 

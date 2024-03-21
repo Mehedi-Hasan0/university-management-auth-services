@@ -39,10 +39,10 @@ async function main() {
 
 main();
 
-process.on('SIGTERM', () => {
-  normalLogger.info('SIGTERM is recieved!');
+// process.on('SIGTERM', () => {
+//   normalLogger.info('SIGTERM is recieved!');
 
-  if (server) {
-    server.close();
-  }
-});
+//   if (server) {
+//     server.close();
+//   }
+// });
