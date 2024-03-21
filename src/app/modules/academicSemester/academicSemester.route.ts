@@ -5,6 +5,8 @@ import { AcademicSemesterController } from './academicSemester.controller';
 
 const router = express.Router();
 
+router.get('/:id', AcademicSemesterController.getSingleSemester);
+
 router.get('/', AcademicSemesterController.getAllSemesters);
 
 router.post(
