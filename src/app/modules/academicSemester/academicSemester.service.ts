@@ -11,7 +11,7 @@ import {
 import { AcademicSemester } from './academicSemester.model';
 import { IGenericResponse, IPaginationOptions } from '../../../types';
 import { paginationHelpers } from '../../../helpers/paginationHelper';
-import { SortOrder } from 'mongoose';
+import mongoose, { SortOrder } from 'mongoose';
 
 const createSemester = async (
   payload: IAcademicSemester,
@@ -117,8 +117,44 @@ const getSingleSemester = async (
   return result;
 };
 
+const updateSemester = async (
+  id: string,
+  payload: Partial<IAcademicSemester>,
+): Promise<IAcademicSemester | null> => {
+  const findCriteria = {
+    _id: new mongoose.Types.ObjectId(id),
+  };
+
+  // If title and code constant value is not same throw an error
+  if (
+    payload.title &&
+    payload.code &&
+    academicSemesterTitleCodeMapper[payload?.title] !== payload.code
+  ) {
+    throw new ApiError(httpStatus.BAD_REQUEST, 'Invalid Semester Code');
+  }
+
+  const result = await AcademicSemester.findOneAndUpdate(
+    findCriteria,
+    payload,
+    { new: true },
+  );
+
+  return result;
+};
+
+const deleteSemester = async (
+  id: string,
+): Promise<IAcademicSemester | null> => {
+  const result = await AcademicSemester.findByIdAndDelete(id);
+
+  return result;
+};
+
 export const AcademicSemesterService = {
   createSemester,
   getSingleSemester,
   getAllSemesters,
+  updateSemester,
+  deleteSemester,
 };

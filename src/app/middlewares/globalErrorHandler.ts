@@ -6,6 +6,7 @@ import ApiError from '../../errors/ApiError';
 import { errorLogger } from '../../shared/logger';
 import { ZodError } from 'zod';
 import zodErrorHandler from '../../errors/zodErrorHandler';
+import { handleCastError } from '../../errors/handleCastError';
 
 const globalErrorHandler: ErrorRequestHandler = (
   error,
@@ -40,6 +41,11 @@ const globalErrorHandler: ErrorRequestHandler = (
     errorMessages = error?.message
       ? [{ path: '', message: error?.message }]
       : [];
+  } else if (error?.name === 'CastError') {
+    const simplyfiedError = handleCastError(error);
+    statusCode = simplyfiedError.statusCode;
+    message = simplyfiedError.message;
+    errorMessages = simplyfiedError.errorMessages;
   } else if (error instanceof Error) {
     message = error?.message;
     errorMessages = error?.message
@@ -58,8 +64,6 @@ const globalErrorHandler: ErrorRequestHandler = (
     errorMessages,
     stack: config.env !== 'production' ? error?.stack : undefined,
   });
-
-  next();
 };
 
 export default globalErrorHandler;
