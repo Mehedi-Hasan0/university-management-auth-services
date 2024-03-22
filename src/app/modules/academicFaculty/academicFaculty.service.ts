@@ -8,7 +8,9 @@ import {
 import { AcademicFaculty } from './academicFaculty.model';
 import { academicFacultySearchableField } from './academicFaculty.constant';
 
-const createFaculty = async (payload: IAcademicFaculty) => {
+const createFaculty = async (
+  payload: IAcademicFaculty,
+): Promise<IAcademicFaculty> => {
   const result = await AcademicFaculty.create(payload);
 
   return result;
